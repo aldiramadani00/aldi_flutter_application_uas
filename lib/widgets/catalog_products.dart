@@ -1,3 +1,7 @@
+import 'package:aldi_flutter_application_uas/controllers/cart_controller.dart';
+import 'package:get/get.dart';
+
+import 'package:aldi_flutter_application_uas/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class CatalogProducts extends StatelessWidget {
@@ -5,17 +9,56 @@ class CatalogProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Flexible(
+        child: ListView.builder(
+            itemCount: Product.products.length,
+            itemBuilder: (BuildContext context, index) {
+              return CatalogProductCard(index: index);
+            }));
   }
 }
 
 class CatalogProductCard extends StatelessWidget {
+  final CartController = Get.put(CartController());
+  final int index;
   CatalogProductCard({
     Key? key,
+    required this.index,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CircleAvatar(
+            radius: 40,
+            backgroundImage: NetworkImage(
+              Product.products[index].imageUrl,
+            ),
+          ),
+          SizedBox(width: 20),
+          Expanded(
+            child: Text(
+              Product.products[index].name,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+          Expanded(
+            child: Text('${Product.products[index].price}'),
+          ),
+          IconButton(
+            onPressed: () {
+              CartController.addProduct(Product.products[index]);
+            },
+            icon: Icon(
+              Icons.add_circle,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
