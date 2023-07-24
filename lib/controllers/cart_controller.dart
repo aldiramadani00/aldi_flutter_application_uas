@@ -1,4 +1,5 @@
 import 'package:aldi_flutter_application_uas/models/product_model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetController {
@@ -18,4 +19,26 @@ class CartController extends GetController {
       duration: Duration(seconds: 2),
     );
   }
+
+  void removeProduct(Product product) {}
 }
+
+void removeProduct(Product product) {
+  if (_products.containsKey(product) && _products[product] == 1) {
+    _products.removeWhere((key, value) => key == product);
+  } else {
+    _products[product] -= 1;
+  }
+}
+
+get products => _products;
+
+get productSubtotal => _products.entries
+    .map((product) => product.key.price * product.value)
+    .toList();
+
+get total => _products.entries
+    .map((product) => product.key.price * product.value)
+    .toList()
+    .reduce((value, element) => value + element)
+    .toStringAsFixed(2);
