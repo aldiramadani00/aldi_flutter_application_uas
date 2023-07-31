@@ -11,16 +11,16 @@ class CartTotal extends StatelessWidget {
     return Obx(
       () => Container(
         padding: const EdgeInsets.symmetric(horizontal: 75),
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               'Total',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
               '\$${controller.total}',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ],
         ),

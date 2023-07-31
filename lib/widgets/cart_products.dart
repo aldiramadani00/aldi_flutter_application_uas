@@ -56,7 +56,7 @@ class CartProductCard extends StatelessWidget {
             radius: 40,
             backgroundImage: NetworkImage(product.imageUrl),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Expanded(
@@ -66,14 +66,14 @@ class CartProductCard extends StatelessWidget {
             onPressed: () {
               controller.removeProduct(product);
             },
-            icon: Icon(Icons.remove_circle),
+            icon: const Icon(Icons.remove_circle),
           ),
           Text('$quantity'),
           IconButton(
             onPressed: () {
               controller.addProduct(product);
             },
-            icon: Icon(Icons.add_circle),
+            icon: const Icon(Icons.add_circle),
           ),
         ],
       ),

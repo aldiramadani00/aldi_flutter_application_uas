@@ -11,20 +11,8 @@ class Product {
   });
 
   static const List<Product> products = [
-    Product(
-      name: 'Apple',
-      price: 2.99,
-      imageUrl:
-      ''),
-    Product(
-      name: 'Orange',
-      price: 2.99,
-      imageUrl:
-      ''),
-    Product(
-      name: 'Pear',
-      price: 2.99,
-      imageUrl:
-      ''),
+    Product(name: 'Apple', price: 2.99, imageUrl: ''),
+    Product(name: 'Orange', price: 2.99, imageUrl: ''),
+    Product(name: 'Pear', price: 2.99, imageUrl: ''),
   ];
 }

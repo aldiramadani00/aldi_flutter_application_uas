@@ -19,7 +19,7 @@ class CatalogProducts extends StatelessWidget {
 }
 
 class CatalogProductCard extends StatelessWidget {
-  final CartController = Get.put(CartController());
+  final cartController = Get.put(CartController());
   final int index;
   CatalogProductCard({
     Key? key,
@@ -39,11 +39,11 @@ class CatalogProductCard extends StatelessWidget {
               Product.products[index].imageUrl,
             ),
           ),
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
           Expanded(
             child: Text(
               Product.products[index].name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
           Expanded(
@@ -51,9 +51,9 @@ class CatalogProductCard extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              CartController.addProduct(Product.products[index]);
+              cartController.addProduct(Product.products[index]);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.add_circle,
             ),
           ),
